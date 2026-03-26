@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codify - Digital Agency</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <div class="logo-symbol">
+                <span></span><span></span><span></span>
+            </div>
+            <span class="logo-text">Codify</span>
+        </div>
+        <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#portfolio">Our Work</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#" class="btn-primary" id="loginBtn">Client Login</a>
+        </div>
+    </nav>
+
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section class="hero" id="home" style="background: radial-gradient(circle at bottom, #100b1a 0%, #050508 100%); position: relative; overflow: hidden; border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <!-- Nebula Orbs & Space Texture -->
+            <div style="position: absolute; top: -20%; left: -10%; width: 50vw; height: 50vw; background: radial-gradient(circle, rgba(138, 43, 226, 0.4) 0%, transparent 70%); filter: blur(60px); animation: float1 15s infinite alternate; z-index: 0; pointer-events: none;"></div>
+            <div style="position: absolute; bottom: -20%; right: -10%; width: 60vw; height: 60vw; background: radial-gradient(circle, rgba(255, 94, 58, 0.25) 0%, transparent 70%); filter: blur(80px); animation: float2 20s infinite alternate; z-index: 0; pointer-events: none;"></div>
+            <div style="position: absolute; top: 30%; left: 40%; width: 30vw; height: 30vw; background: radial-gradient(circle, rgba(0, 191, 255, 0.2) 0%, transparent 70%); filter: blur(50px); animation: float1 18s infinite alternate-reverse; z-index: 0; pointer-events: none;"></div>
+            <div style="position: absolute; width: 2px; height: 2px; border-radius: 50%; background: transparent; box-shadow: 10vw 20vh #fff, 30vw 40vh #fff, 50vw 10vh #fff, 70vw 50vh #fff, 90vw 30vh #fff, 20vw 80vh #fff, 40vw 60vh #fff, 60vw 90vh #fff, 80vw 20vh #fff, 25vw 25vh #fff, 75vw 75vh #fff; opacity: 0.8; animation: twinkle 4s infinite alternate; z-index: 0;"></div>
+            <div style="position: absolute; width: 1px; height: 1px; border-radius: 50%; background: transparent; box-shadow: 5vw 5vh #fff, 15vw 25vh #fff, 25vw 45vh #fff, 35vw 75vh #fff, 45vw 15vh #fff, 55vw 55vh #fff, 65vw 85vh #fff, 75vw 35vh #fff, 85vw 65vh #fff, 95vw 95vh #fff, 10vw 90vh #fff, 80vw 80vh #fff, 85vw 15vh #fff, 15vw 85vh #fff; opacity: 0.4; animation: twinkle 3s infinite alternate-reverse; z-index: 0;"></div>
+            <div class="container hero-container" style="position: relative; z-index: 1;">
+                <h1 class="hero-title" style="color: #ffffff;">Crafting digital stories with a <span style="color: var(--accent-orange); font-style: italic;">human touch.</span></h1>
+                <p class="hero-subtitle" style="color: rgba(255,255,255,0.7);">Bespoke digital experiences blending technical excellence with human-centered design.</p>
+                <div class="hero-cta-group" style="display:flex; flex-direction:column; align-items:center; gap:1rem;">
+                    <a href="#portfolio" class="btn-primary">Explore Our Portfolio &rarr;</a>
+                    <div style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 1.5rem; display: flex; align-items: center; justify-content: center; gap: 1rem; background: rgba(255,255,255,0.03); padding: 0.5rem 1.5rem; border-radius: 50px; border: 1px solid rgba(255,255,255,0.1);">
+                        <span>✓ Integrated Secure Payments</span>
+                         &bull; 
+                        <span>✓ Easy Google Client Login</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Philosophy Section -->
+        <section class="philosophy" id="philosophy">
+            <div class="container">
+                <div class="section-label">PHILOSOPHY</div>
+                <h2 class="section-title text-left">Rooted in empathy,<br>driven by purpose.</h2>
+                
+                <div class="philosophy-grid">
+                    <div class="philosophy-card">
+                        <h3>Human-Centric</h3>
+                        <p>We design for real people, simplifying complex interactions into natural & engaging flows.</p>
+                    </div>
+                    <div class="philosophy-card">
+                        <h3>Tactile Design</h3>
+                        <p>Clean lines and soft geometry that bring warmth to the digital realm.</p>
+                    </div>
+                    <div class="philosophy-card">
+                        <h3>Authentic Growth</h3>
+                        <p>Sustainable strategies driven by long-term connection and genuine brand value.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section class="services" id="services">
+            <div class="container text-center">
+                <h2 class="section-title-large">Crafting Digital<br>Excellence.</h2>
+                <p class="section-subtitle">Tailored solutions designed for your modern business needs with a focus on clarity and human-centric design.</p>
+                
+                <div class="services-header mt-lg">
+                    <h3 class="services-title">Our Expertise</h3>
+                    <p class="services-desc">A comprehensive suite of digital services to elevate your brand presence.</p>
+                    <a href="#" class="accent-link">EXPLORE ALL SERVICES</a>
+                </div>
+
+                <div class="services-list">
+                    <div class="service-item">
+                        <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+                        <h4>Web Development</h4>
+                        <p>Building fast, responsive, and accessible digital experiences that scale with your business.</p>
+                        <a href="#" class="learn-more">Learn more &rarr;</a>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div>
+                        <h4>App Development</h4>
+                        <p>Crafting intuitive mobile applications for iOS and Android with a focus on user retention.</p>
+                        <a href="#" class="learn-more">Learn more &rarr;</a>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"/><path d="M12 6v6l4 2"/></svg></div>
+                        <h4>AI Integrations</h4>
+                        <p>Implementing smart automation and machine learning models to optimize your daily operations.</p>
+                        <a href="#" class="learn-more">Learn more &rarr;</a>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
+                        <h4>Content Strategy</h4>
+                        <p>Defining your brand voice and planning impactful narratives that resonate with your audience.</p>
+                        <a href="#" class="learn-more">Learn more &rarr;</a>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg></div>
+                        <h4>Video Production</h4>
+                        <p>Creating cinematic visual stories that capture attention and drive meaningful engagement.</p>
+                        <a href="#" class="learn-more">Learn more &rarr;</a>
+                    </div>
+                    <div class="service-item">
+                        <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+                        <h4>Workflow Automation</h4>
+                        <p>Streamlining your business processes to save time, reduce errors, and increase productivity.</p>
+                        <a href="#" class="learn-more">Learn more &rarr;</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section class="portfolio" id="portfolio">
+            <div class="container">
+                <div class="section-label">SELECTED WORK</div>
+                <div class="portfolio-header">
+                    <h2 class="section-title text-left" style="margin-bottom:0;">Featured<br>Projects.</h2>
+                    <a href="#" class="btn-outline">View All Projects</a>
+                </div>
+
+                <div class="portfolio-grid">
+                    <a href="#" class="portfolio-card" style="background-image: url('assets/portfolio_1.png'); background-size: cover; background-position: center; min-height: 400px; position: relative;">
+                        <div class="portfolio-content" style="background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; border-radius: 0 0 16px 16px;">
+                            <h3 style="color: #fff; margin-bottom: 0.5rem;">The Artisanal Web</h3>
+                            <p style="color: #ccc;">E-Commerce / Branding</p>
+                        </div>
+                    </a>
+                    <a href="#" class="portfolio-card" style="background-image: url('assets/portfolio_2.png'); background-size: cover; background-position: center; min-height: 400px; position: relative;">
+                        <div class="portfolio-content" style="background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; border-radius: 0 0 16px 16px;">
+                            <h3 style="color: #fff; margin-bottom: 0.5rem;">Digital Craftsmanship</h3>
+                            <p style="color: #ccc;">Corporate Website</p>
+                        </div>
+                    </a>
+                    <a href="#" class="portfolio-card" style="background-image: url('assets/portfolio_3.png'); background-size: cover; background-position: center; min-height: 400px; position: relative;">
+                        <div class="portfolio-content" style="background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; border-radius: 0 0 16px 16px;">
+                            <h3 style="color: #fff; margin-bottom: 0.5rem;">Echo Rebrand</h3>
+                            <p style="color: #ccc;">Identity / Web App</p>
+                        </div>
+                    </a>
+                    <a href="#" class="portfolio-card" style="background-image: url('assets/portfolio_4.png'); background-size: cover; background-position: center; min-height: 400px; position: relative;">
+                        <div class="portfolio-content" style="background: linear-gradient(to top, rgba(0,0,0,0.9), transparent); position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; border-radius: 0 0 16px 16px;">
+                            <h3 style="color: #fff; margin-bottom: 0.5rem;">Organic Flow</h3>
+                            <p style="color: #ccc;">Mobile Application</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing" id="pricing">
+            <div class="container text-center">
+                <h2 class="section-title">Simple Pricing</h2>
+                <p class="section-subtitle">Transparent plans for projects of all sizes.</p>
+
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <h3>Basic</h3>
+                        <div class="price">₹5000</div>
+                        <p class="pricing-desc">Simple website project.</p>
+                        <ul class="pricing-features">
+                            <li>Custom Design</li>
+                            <li>Responsive Layout</li>
+                            <li>Basic SEO setup</li>
+                        </ul>
+                        <a href="checkout.html?plan=basic" class="btn-outline">Choose Basic</a>
+                    </div>
+
+                    <div class="pricing-card recommended">
+                        <div class="recommended-badge">Recommended</div>
+                        <h3>Starter</h3>
+                        <div class="price">₹10000</div>
+                        <p class="pricing-desc">Advanced website with AI integration.</p>
+                        <ul class="pricing-features">
+                            <li>Everything in Basic</li>
+                            <li>AI Chatbot Integration</li>
+                            <li>CMS Setup</li>
+                            <li>Analytics Setup</li>
+                        </ul>
+                        <a href="checkout.html?plan=starter" class="btn-primary">Choose Starter</a>
+                    </div>
+
+                    <div class="pricing-card">
+                        <h3>Premium</h3>
+                        <div class="price">₹15000</div>
+                        <p class="pricing-desc">Full website + AI systems + digital content.</p>
+                        <ul class="pricing-features">
+                            <li>Everything in Starter</li>
+                            <li>Custom Web App functionality</li>
+                            <li>Content Strategy</li>
+                            <li>Priority Support</li>
+                        </ul>
+                        <a href="checkout.html?plan=premium" class="btn-outline">Choose Premium</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq" id="faq">
+            <div class="container">
+                <h2 class="section-title">Frequently Asked Questions</h2>
+                
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question">What is your typical project timeline? <span class="faq-icon">+</span></button>
+                        <div class="faq-answer">
+                            <p>A standard website takes 2-4 weeks, while complex web applications with AI integrations can take 6-8 weeks from discovery to launch.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Do you offer ongoing maintenance? <span class="faq-icon">+</span></button>
+                        <div class="faq-answer">
+                            <p>Yes, we offer custom retainer packages for ongoing updates, security monitoring, and content strategy execution.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">How does the payment process work? <span class="faq-icon">+</span></button>
+                        <div class="faq-answer">
+                            <p>We typically require a 50% deposit to start the project, with the remaining 50% due upon completion and launch.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact" id="contact" style="padding: 6rem 0; border-top: 1px solid rgba(255,255,255,0.05);">
+            <div class="container">
+                <div style="max-width: 600px; margin: 0 auto; background: var(--card-bg); padding: 3rem; border-radius: 16px; border: 1px solid var(--border-color);">
+                    <h2 class="section-title text-left" style="margin-bottom: 1rem;">Let's Talk.</h2>
+                    <p style="color: var(--text-secondary); margin-bottom: 2rem;">
+                        Fill out the form below, email us directly at <a href="mailto:arnavdhiman943@gmail.com" style="color: var(--accent-orange);">arnavdhiman943@gmail.com</a>, or call us at <strong style="color: white;">8506071529</strong>.
+                    </p>
+                    <form id="contactForm" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">Name</label>
+                            <input type="text" required style="width: 100%; padding: 1rem; border: 1px solid var(--border-color); background: transparent; color: white; border-radius: 8px; font-family: inherit;">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">Email</label>
+                            <input type="email" required style="width: 100%; padding: 1rem; border: 1px solid var(--border-color); background: transparent; color: white; border-radius: 8px; font-family: inherit;">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem; font-size: 0.9rem; color: var(--text-secondary);">Project Details</label>
+                            <textarea rows="4" required style="width: 100%; padding: 1rem; border: 1px solid var(--border-color); background: transparent; color: white; border-radius: 8px; font-family: inherit; resize: vertical;"></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary" style="padding: 1rem; width: 100%; font-size: 1.1rem; margin-top: 1rem;">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="final-cta">
+            <div class="container text-center">
+                <h2>Ready to collaborate?</h2>
+                <p>Let's build something remarkable together.</p>
+                <div class="mt-lg">
+                    <a href="#contact" class="btn-primary" style="padding: 1rem 2rem; font-size: 1.1rem;">Get in Touch</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-symbol">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <span class="logo-text">Codify</span>
+                </div>
+                <p>Crafting digital experiences with a human touch.</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-col">
+                    <h4>Studio</h4>
+                    <a href="#">About</a>
+                    <a href="#">Services</a>
+                    <a href="#">Portfolio</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Social</h4>
+                    <a href="#">Twitter</a>
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Instagram</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Contact Us</h4>
+                    <a href="mailto:arnavdhiman943@gmail.com">arnavdhiman943@gmail.com</a>
+                    <a href="tel:8506071529">8506071529</a>
+                </div>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Codify Digital Agency. All rights reserved.</p>
+            <div class="legal-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Client Dashboard (Hidden by default) -->
+    <div id="dashboard" class="hidden dashboard-layout">
+        <aside class="dashboard-sidebar">
+            <div class="logo dashboard-logo">
+                <div class="logo-symbol">
+                    <span></span><span></span><span></span>
+                </div>
+                <span class="logo-text">Codify</span>
+            </div>
+            
+            <nav class="dashboard-nav">
+                <a href="#" class="active" data-view="overview"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg> Overview</a>
+                <a href="#" data-view="projects"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg> Projects</a>
+                <a href="#" data-view="invoices"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg> Invoices</a>
+            </nav>
+            
+            <div class="dashboard-user">
+                <div class="user-avatar">JD</div>
+                <div class="user-info">
+                    <div class="user-name">John Doe</div>
+                    <div class="user-email">john@example.com</div>
+                </div>
+                <button class="logout-btn" id="logoutBtn" title="Logout"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg></button>
+            </div>
+        </aside>
+
+        <main class="dashboard-main" id="dashboard-content">
+            <!-- Dynamic Content -->
+        </main>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div id="customCursor" class="custom-cursor"></div>
+    <div id="customCursorDot" class="custom-cursor-dot"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

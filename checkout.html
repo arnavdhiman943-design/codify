@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codify - Secure Checkout</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { background-color: var(--bg-color); }
+        .checkout-container {
+            max-width: 1000px;
+            margin: 4rem auto;
+            padding: 0 5%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        @media (max-width: 768px) {
+            .checkout-container { grid-template-columns: 1fr; }
+        }
+        .checkout-form {
+            background: var(--card-bg);
+            padding: 2.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+        .order-summary {
+            padding: 2.5rem;
+            background: var(--text-primary);
+            color: white;
+            border-radius: 12px;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 1rem;
+        }
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent-orange);
+        }
+        .payment-methods {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            margin-top: 1rem;
+        }
+        .pm-btn {
+            flex: 1;
+            padding: 1rem;
+            border: 1px solid var(--border-color);
+            background: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.2s;
+        }
+        .pm-btn.active {
+            border-color: var(--accent-orange);
+            background: rgba(255, 94, 58, 0.05);
+            color: var(--accent-orange);
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .summary-total {
+            font-size: 1.5rem;
+            font-weight: 700;
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-top: 2rem;
+        }
+        
+        /* Processing Overlay */
+        .processing-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255,255,255,0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+        .processing-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .spinner {
+            width: 50px;
+            height: 50px;
+            border: 3px solid var(--border-color);
+            border-top-color: var(--accent-orange);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 1rem;
+        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+    <div class="container" style="padding-top: 2rem;">
+        <div class="logo">
+            <div class="logo-symbol">
+                <span></span><span></span><span></span>
+            </div>
+            <span class="logo-text"><a href="index.html">Codify</a></span>
+        </div>
+    </div>
+
+    <div class="checkout-container">
+        <div class="checkout-form">
+            <h2 style="margin-bottom: 2rem; font-size: 1.5rem;">Payment Details</h2>
+            
+            <div class="payment-methods">
+                <button class="pm-btn active" data-method="card">Credit Card</button>
+                <button class="pm-btn" data-method="upi">UPI</button>
+            </div>
+
+            <!-- Card Form -->
+            <form id="paymentForm">
+                <div id="cardFields">
+                    <div class="form-group">
+                        <label>Cardholder Name</label>
+                        <input type="text" class="form-control" required placeholder="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <input type="text" class="form-control" required placeholder="0000 0000 0000 0000">
+                    </div>
+                    <div style="display: flex; gap: 1rem;">
+                        <div class="form-group" style="flex:1;">
+                            <label>Expiry Date</label>
+                            <input type="text" class="form-control" required placeholder="MM/YY">
+                        </div>
+                        <div class="form-group" style="flex:1;">
+                            <label>CVC</label>
+                            <input type="text" class="form-control" required placeholder="123">
+                        </div>
+                    </div>
+                </div>
+
+                <div id="upiFields" class="hidden">
+                    <div class="form-group">
+                        <label>UPI ID</label>
+                        <input type="text" class="form-control" placeholder="username@bank">
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary" style="width: 100%; margin-top: 1rem; padding: 1rem; font-size: 1.1rem;">
+                    Pay Securely
+                </button>
+                <p style="text-align: center; font-size: 0.8rem; color: var(--text-secondary); margin-top: 1rem;">
+                    Payments are secure and encrypted.
+                </p>
+            </form>
+        </div>
+
+        <div class="order-summary">
+            <h3 style="margin-bottom: 2rem; color: white;">Order Summary</h3>
+            <div class="summary-row">
+                <span id="planName">Starter Plan</span>
+                <span id="planPrice">₹10000</span>
+            </div>
+            <div class="summary-row" style="color: #a0a0a0; font-size: 0.9rem;">
+                <span>Subtotal</span>
+                <span id="subTotal">₹10000</span>
+            </div>
+            <div class="summary-row" style="color: #a0a0a0; font-size: 0.9rem;">
+                <span>Taxes (Included)</span>
+                <span>₹0</span>
+            </div>
+            <div class="summary-row summary-total">
+                <span>Total</span>
+                <span id="totalPrice">₹10000</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Processing Overlay -->
+    <div class="processing-overlay" id="overlay">
+        <div class="spinner"></div>
+        <h3 style="color: var(--text-primary);">Processing Payment...</h3>
+        <p style="color: var(--text-secondary); margin-top: 0.5rem;">Please don't close this window.</p>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const plan = urlParams.get('plan') || 'starter';
+        
+        const plans = {
+            'basic': { name: 'Basic Plan', price: '₹5000' },
+            'starter': { name: 'Starter Plan', price: '₹10000' },
+            'premium': { name: 'Premium Plan', price: '₹15000' }
+        };
+        
+        const selectedPlan = plans[plan];
+        document.getElementById('planName').textContent = selectedPlan.name;
+        document.getElementById('planPrice').textContent = selectedPlan.price;
+        document.getElementById('subTotal').textContent = selectedPlan.price;
+        document.getElementById('totalPrice').textContent = selectedPlan.price;
+
+        // Payment Method Toggle
+        const pmBtns = document.querySelectorAll('.pm-btn');
+        const cardFields = document.getElementById('cardFields');
+        const upiFields = document.getElementById('upiFields');
+
+        pmBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                pmBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                if (btn.dataset.method === 'card') {
+                    cardFields.classList.remove('hidden');
+                    upiFields.classList.add('hidden');
+                    cardFields.querySelectorAll('input').forEach(i => i.required = true);
+                    upiFields.querySelectorAll('input').forEach(i => i.required = false);
+                } else {
+                    cardFields.classList.add('hidden');
+                    upiFields.classList.remove('hidden');
+                    cardFields.querySelectorAll('input').forEach(i => i.required = false);
+                    upiFields.querySelectorAll('input').forEach(i => i.required = true);
+                }
+            });
+        });
+
+        // Form Submit Simulation
+        document.getElementById('paymentForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            document.getElementById('overlay').classList.add('active');
+            
+            // Simulate API call and redirect
+            setTimeout(() => {
+                window.location.href = 'index.html?payment_success=true';
+            }, 2500);
+        });
+    </script>
+</body>
+</html>
