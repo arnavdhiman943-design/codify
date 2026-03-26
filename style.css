@@ -10,8 +10,10 @@
 }
 
 /* Elite CSS Custom Cursor */
-* {
-    cursor: none !important;
+@media (hover: hover) and (pointer: fine) {
+    * {
+        cursor: none !important;
+    }
 }
 .custom-cursor {
     position: fixed; width: 45px; height: 45px; border: 1px solid rgba(255, 94, 58, 0.4); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), height 0.3s cubic-bezier(0.165, 0.84, 0.44, 1), background-color 0.3s, border-color 0.3s, left 0.15s ease-out, top 0.15s ease-out;
@@ -22,6 +24,13 @@
 }
 .custom-cursor.hovering {
     width: 65px; height: 65px; background-color: rgba(255, 94, 58, 0.05); border-color: rgba(255, 94, 58, 0.8);
+}
+
+/* Hide custom cursor completely on mobile/touch devices */
+@media (hover: none), (pointer: coarse), (max-width: 768px) {
+    .custom-cursor, .custom-cursor-dot {
+        display: none !important;
+    }
 }
 
 @keyframes twinkle { 0% { opacity: 0.1; } 100% { opacity: 0.9; } }
