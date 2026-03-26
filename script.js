@@ -27,6 +27,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Scroll Reveal Intersection Observer
+    const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+            }
+        });
+    }, observerOptions);
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
     // Login Modal Logic
     const loginBtn = document.getElementById('loginBtn');
     const loginModal = document.getElementById('loginModal');
